@@ -14,7 +14,7 @@ export function MagicCard({
   children,
   className,
   gradientSize = 200,
-  gradientColor = "#262626",
+  gradientColor,
   gradientOpacity = 0.8,
 }: MagicCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -35,13 +35,19 @@ export function MagicCard({
     return () => card.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  const defaultGradient = gradientColor ?? "var(--color-muted)";
+
   return (
     <div
       ref={cardRef}
       className={cn(
-        "group relative flex size-full overflow-hidden rounded-xl bg-card",
+        "group relative flex size-full overflow-hidden",
+        "bg-card border border-border",
+        "transition-all duration-300",
+        "hover:border-foreground/10",
         className
       )}
+      style={{ borderRadius: "var(--radius)" }}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -50,7 +56,7 @@ export function MagicCard({
         className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
         style={{
           opacity: isHovering ? gradientOpacity : 0,
-          background: `radial-gradient(${gradientSize}px circle at ${mousePosition.x}px ${mousePosition.y}px, ${gradientColor}, transparent 60%)`,
+          background: `radial-gradient(${gradientSize}px circle at ${mousePosition.x}px ${mousePosition.y}px, ${defaultGradient}, transparent 60%)`,
         }}
       />
     </div>
