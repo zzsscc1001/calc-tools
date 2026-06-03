@@ -2,6 +2,7 @@ import { MagicCard } from "@/components/magicui/magic-card";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 import {
   Zap,
   BarChart3,
@@ -67,8 +68,8 @@ function ToolCard({
   return (
     <MagicCard
       className="relative p-6"
-      gradientColor="#262626"
-      gradientOpacity={0.6}
+      gradientColor="var(--color-muted)"
+      gradientOpacity={0.8}
     >
       <a href={href} className="flex flex-col justify-between size-full z-10">
         <div className="flex flex-col gap-3">
@@ -100,8 +101,8 @@ export default function App() {
       {/* 背景 */}
       <div className="fixed inset-0 z-0">
         <FlickeringGrid
-          color="rgb(255, 255, 255)"
-          maxOpacity={0.03}
+          color="var(--color-foreground)"
+          maxOpacity={0.04}
           flickerChance={0.05}
           squareSize={4}
           gridGap={6}
@@ -111,7 +112,12 @@ export default function App() {
       {/* 内容 */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-20">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="relative text-center mb-16">
+          {/* 主题切换按钮 — 右上角 */}
+          <div className="absolute top-0 right-0">
+            <AnimatedThemeToggler />
+          </div>
+
           <AnimatedShinyText className="text-sm tracking-widest uppercase mb-4">
             Engineer's Toolkit
           </AnimatedShinyText>
