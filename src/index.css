@@ -2,50 +2,66 @@
 @import url("https://cdn.jsdelivr.net/npm/geist@1.4.1/dist/fonts/geist-mono/style.css");
 @import "tailwindcss";
 
-/* Magic UI 官方色板 — 照抄 */
-:root {
-  --color-background: #ffffff;
-  --color-foreground: #1a1a1a;
-  --color-card: #ffffff;
-  --color-card-foreground: #1a1a1a;
-  --color-primary: #1a1a1a;
-  --color-primary-foreground: #fafafa;
-  --color-secondary: #f7f7f7;
-  --color-secondary-foreground: #1a1a1a;
-  --color-muted: #f7f7f7;
-  --color-muted-foreground: #8a8a8a;
-  --color-accent: #f7f7f7;
-  --color-accent-foreground: #1a1a1a;
-  --color-border: #e8e8e8;
-  --color-input: #e8e8e8;
-  --color-ring: #b4b4b4;
-
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
   --radius: 0.625rem;
 }
 
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --primary: #1a1a1a;
+  --primary-foreground: #fafafa;
+  --secondary: #f7f7f7;
+  --secondary-foreground: #1a1a1a;
+  --muted: #f7f7f7;
+  --muted-foreground: #8a8a8a;
+  --accent: #f7f7f7;
+  --accent-foreground: #1a1a1a;
+  --border: #e8e8e8;
+  --input: #e8e8e8;
+  --ring: #b4b4b4;
+}
+
 .dark {
-  --color-background: #1a1a1a;
-  --color-foreground: #fafafa;
-  --color-card: #2a2a2a;
-  --color-card-foreground: #fafafa;
-  --color-primary: #e8e8e8;
-  --color-primary-foreground: #1a1a1a;
-  --color-secondary: #2a2a2a;
-  --color-secondary-foreground: #fafafa;
-  --color-muted: #2a2a2a;
-  --color-muted-foreground: #b4b4b4;
-  --color-accent: #2a2a2a;
-  --color-accent-foreground: #fafafa;
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-input: rgba(255, 255, 255, 0.15);
-  --color-ring: #8a8a8a;
+  --background: #1a1a1a;
+  --foreground: #fafafa;
+  --card: #2a2a2a;
+  --card-foreground: #fafafa;
+  --primary: #e8e8e8;
+  --primary-foreground: #1a1a1a;
+  --secondary: #2a2a2a;
+  --secondary-foreground: #fafafa;
+  --muted: #2a2a2a;
+  --muted-foreground: #b4b4b4;
+  --accent: #2a2a2a;
+  --accent-foreground: #fafafa;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #8a8a8a;
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  background-color: var(--background);
+  color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

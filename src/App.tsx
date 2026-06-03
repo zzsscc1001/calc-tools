@@ -94,10 +94,9 @@ function ToolCard({
 export default function App() {
   return (
     <div className="relative min-h-screen bg-background">
-      {/* 背景 */}
       <div className="fixed inset-0 z-0">
         <FlickeringGrid
-          color="var(--color-foreground)"
+          color="var(--foreground)"
           maxOpacity={0.03}
           flickerChance={0.04}
           squareSize={3}
@@ -105,9 +104,7 @@ export default function App() {
         />
       </div>
 
-      {/* 内容 */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 py-16">
-        {/* Header */}
         <div className="relative text-center mb-12">
           <div className="absolute top-0 right-0">
             <AnimatedThemeToggler />
@@ -124,14 +121,12 @@ export default function App() {
           </p>
         </div>
 
-        {/* Tool Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {tools.map((tool) => (
             <ToolCard key={tool.name} {...tool} />
           ))}
         </div>
 
-        {/* Footer */}
         <div className="text-center mt-16 text-muted-foreground text-xs">
           Built with{" "}
           <a
