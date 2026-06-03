@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/calc-tools/favicon.svg" />
@@ -11,8 +11,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/calc-tools/assets/index-DWFZy4Wh.js"></script>
-    <link rel="stylesheet" crossorigin href="/calc-tools/assets/index-CdMt41sT.css">
+    <script>
+      // 防止主题闪烁 — 在 React 加载前读取 localStorage
+      (function () {
+        const theme = localStorage.getItem("theme") || "dark";
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
+    <script type="module" crossorigin src="/calc-tools/assets/index-CSXgGRCT.js"></script>
+    <link rel="stylesheet" crossorigin href="/calc-tools/assets/index-BBtl9GnX.css">
   </head>
   <body>
     <div id="root"></div>
