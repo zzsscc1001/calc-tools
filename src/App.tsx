@@ -76,7 +76,7 @@ function ToolCard({
           </div>
         </div>
         <div className="text-muted-foreground text-xs mt-auto pt-3 opacity-0 group-hover:opacity-100 transition-opacity">
-          <span className="underline-link">Open →</span>
+          <span className="underline-offset-4 hover:underline">Open →</span>
         </div>
       </a>
       {featured && (
