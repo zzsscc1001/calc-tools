@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { MagicCard } from "./components/magicui/magic-card"
 import { FlickeringGrid } from "./components/magicui/flickering-grid"
 import { AnimatedShinyText } from "./components/magicui/animated-shiny-text"
+import { BorderBeam } from "./components/magicui/border-beam"
 
 function ThemeToggle() {
   const [dark, setDark] = useState(true)
@@ -22,6 +23,7 @@ function ThemeToggle() {
 function ToolCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
   return (
     <MagicCard className="card-hover-underline group relative flex flex-col justify-between overflow-hidden rounded-[--radius] p-6 cursor-pointer">
+      <BorderBeam size={150} duration={12} delay={9} />
       <div>
         <div className="mb-4 text-muted-foreground">{icon}</div>
         <h3 className="mb-1 text-lg font-medium">{title}</h3>
@@ -58,4 +60,3 @@ export default function App() {
     </div>
   )
 }
-/* force rebuild */
