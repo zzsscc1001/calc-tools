@@ -67,10 +67,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 卡片 hover 时，内部的 .underline-link 出现下划线动画 */
-.card-hover-underline:hover .underline-link::after {
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+.group:hover .underline-link::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.underline-link {
+  position: relative;
+  display: inline-block;
 }
 
 .underline-link::after {
@@ -84,10 +94,4 @@ body {
   transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
 }
