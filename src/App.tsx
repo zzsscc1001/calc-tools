@@ -9,7 +9,7 @@ import {
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
-import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 
 const tools = [
   {
