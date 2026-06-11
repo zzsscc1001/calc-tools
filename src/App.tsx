@@ -79,8 +79,19 @@ function ToolCard({
         </div>
       </div>
 
-      {/* CTA - hover 时从底部滑入，与 BentoGrid 官方一致 */}
-      <div className="pointer-events-none absolute bottom-0 left-0 w-full translate-y-10 transform-gpu flex-row items-center p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 flex">
+      {/* 移动端 CTA - 始终可见 */}
+      <div className="pointer-events-none flex w-full translate-y-0 transform-gpu flex-row items-center transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 lg:hidden">
+        <a
+          href={href}
+          className="pointer-events-auto text-foreground text-xs underline-offset-4 hover:underline inline-flex items-center gap-1"
+        >
+          Open
+          <ArrowRightIcon className="ms-1 h-3 w-3 rtl:rotate-180" />
+        </a>
+      </div>
+
+      {/* 桌面端 CTA - hover 时从底部滑入，与 BentoGrid 官方一致 */}
+      <div className="pointer-events-none absolute bottom-0 left-0 w-full translate-y-10 transform-gpu flex-row items-center p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hidden lg:flex">
         <a
           href={href}
           className="pointer-events-auto text-foreground text-xs underline-offset-4 hover:underline inline-flex items-center gap-1"
