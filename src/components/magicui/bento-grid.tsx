@@ -54,10 +54,10 @@ const BentoCard = ({
     )}
     {...props}
   >
-    {/* 背景区域 */}
-    {background && <div>{background}</div>}
+    {/* 背景区域（如果有的话，占上方空间；没有则用 spacer 撑开） */}
+    {background ? <div>{background}</div> : <div className="flex-1" />}
 
-    {/* 主内容区 */}
+    {/* 主内容区 - 靠下方，hover 时上移 */}
     <div className="p-4">
       <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 transition-all duration-300 lg:group-hover:-translate-y-10">
         <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
