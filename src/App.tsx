@@ -67,7 +67,7 @@ function ToolCard({
   featured?: boolean;
 }) {
   return (
-    <MagicCard className="relative p-5" gradientSize={250}>
+    <MagicCard className="relative p-5 min-h-[12rem]" gradientSize={250}>
       {/* 主内容区 - hover 时整体上移，为 CTA 腾出空间 */}
       <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 transition-all duration-300 lg:group-hover:-translate-y-10">
         <div className="text-muted-foreground transition-all duration-300 ease-in-out origin-left group-hover:scale-75">
