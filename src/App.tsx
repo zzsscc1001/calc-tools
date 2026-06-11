@@ -3,6 +3,7 @@ import { BorderBeam } from "@/components/magicui/border-beam";
 import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 import {
   Zap,
   BarChart3,
@@ -67,18 +68,31 @@ function ToolCard({
 }) {
   return (
     <MagicCard className="relative p-5" gradientSize={250}>
-      <a href={href} className="flex flex-col justify-between size-full z-10">
-        <div className="flex flex-col gap-2">
-          <div className="text-muted-foreground">{icon}</div>
-          <div>
-            <h3 className="font-medium text-foreground text-sm">{name}</h3>
-            <p className="text-muted-foreground text-xs mt-1">{description}</p>
-          </div>
+      {/* 主内容区 - hover 时整体上移，为 CTA 腾出空间 */}
+      <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 transition-all duration-300 lg:group-hover:-translate-y-10">
+        <div className="text-muted-foreground transition-all duration-300 ease-in-out origin-left group-hover:scale-75">
+          {icon}
         </div>
-        <div className="text-muted-foreground text-xs mt-auto pt-3 opacity-0 group-hover:opacity-100 transition-opacity">
-          <span className="underline-offset-4 hover:underline">Open →</span>
+        <div>
+          <h3 className="font-medium text-foreground text-sm">{name}</h3>
+          <p className="text-muted-foreground text-xs mt-1">{description}</p>
         </div>
-      </a>
+      </div>
+
+      {/* CTA - hover 时从底部滑入，与 BentoGrid 官方一致 */}
+      <div className="pointer-events-none absolute bottom-0 left-0 w-full translate-y-10 transform-gpu flex-row items-center p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 flex">
+        <a
+          href={href}
+          className="pointer-events-auto text-foreground text-xs underline-offset-4 hover:underline inline-flex items-center gap-1"
+        >
+          Open
+          <ArrowRightIcon className="ms-1 h-3 w-3 rtl:rotate-180" />
+        </a>
+      </div>
+
+      {/* hover 遮罩层 */}
+      <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/3 group-hover:dark:bg-neutral-800/10" />
+
       {featured && (
         <BorderBeam
           size={200}
